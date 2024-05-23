@@ -1,0 +1,16 @@
+{
+    "settingName": "adbaudittologanalytics",
+    "nsgName": "adb-e2-automation-nsg",
+    "vnetName": "adb-e2-automation-vnet",
+    "workspaceName": "adb-e2-automation-ws",
+    "privateSubnetName": "container-subnet",
+    "publicSubnetName": "host-subnet",
+    "pricingTier": "premium",
+    "location": "westeurope",
+    "vnetCidr": "10.181.0.0/16",
+    "privateSubnetCidr": "10.181.1.0/24",
+    "publicSubnetCidr": "10.181.2.0/24",
+    "privateSubnetDelegationName": "databricks-del-container",
+    "publicSubnetDelegationName": "databricks-del-host",
+    "enableNoPublicIp": true
+}

@@ -1,0 +1,23 @@
+{
+	"cluster_name": "hc-gen2-access-cluster",
+	"spark_version": "latest-stable-scala2.11",
+	"autoscale": {
+		"min_workers": 2,
+		"max_workers": 3
+	},
+	"spark_conf": {
+		"spark.databricks.cluster.profile": "serverless",
+		"spark.databricks.passthrough.enabled": "true",
+		"spark.databricks.delta.preview.enabled": "true",
+		"spark.databricks.pyspark.enableProcessIsolation": "true",
+		"spark.databricks.repl.allowedLanguages": "python,sql"
+	},
+	"node_type_id": "Standard_L8s_v2",
+	"driver_node_type_id": "Standard_L8s_v2",
+	"custom_tags": {
+		"department": "sales",
+		"project": "platform-sme"
+	},
+	"autotermination_minutes": 20,
+	"enable_elastic_disk": true
+}

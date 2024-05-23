@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "australiacentral", 
+                "australiaeast", 
+                "australiasoutheast", 
+                "brazilsouth",
+                "canadacentral", 
+                "centralindia", 
+                "centralus", 
+                "eastasia", 
+                "eastus", 
+                "eastus2", 
+                "francecentral", 
+                "japaneast", 
+                "koreacentral", 
+                "northcentralus", 
+                "northeurope", 
+                "southafricanorth", 
+                "southcentralus", 
+                "southeastasia", 
+                "uksouth", 
+                "ukwest", 
+                "westcentralus", 
+                "westeurope", 
+                "westus", 
+                "westus2" 
+            ],
+            "metadata": {
+                "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "string",
+            "allowedValues": [
+                "pergb2018",
+                "Free",
+                "Standalone",
+                "PerNode",
+                "Standard",
+                "Premium"
+            ],
+            "defaultValue": "pergb2018",
+            "metadata": {
+                "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+            }
+        },
+        "resourceTags": {
+            "type": "object",
+            "defaultValue": {
+                "owner": "a.g@databricks.com",
+                "project": "adb-e2-automation-demo"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-11-01-preview",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]"
+                },
+                "retentionInDays": 120
+            }
+        }
+    ]
+}
